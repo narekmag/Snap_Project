@@ -2,69 +2,90 @@ html,
 body {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
+    background-color: #222;
+    color: #ddd;
 }
 
 .main-header {
-    background-color: rgba(0, 0, 0, .3);
-    padding-bottom: 10px;
+    background-color: #111;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .title {
     text-align: center;
     margin: 0;
-    font-size: 8em;
-    font-family: "Helvetica";
-    font-weight: normal;
+    font-size: 2.5em;
     color: white;
+}
+
+main {
+    padding: 20px;
 }
 
 #card-container {
     display: flex;
-    justify-content: center;
-    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.card {
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 5px;
+.narrative-row {
+    margin-bottom: 20px;
+    width: 10
 }
 
-.card-content {
-    padding: 20px;
-    font-family: "Verdana";
-    color: #777;
-}
-
-.card-content h2 {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.card img {
+/* Add styles for the card */
+.crypto-card {
+    width: calc(50% - 10px); /* Adjust width as needed */
+    margin-bottom: 20px;
+    perspective: 1000px; /* Enable 3D effect */
+  }
+  
+  .card-front,
+  .card-back {
     width: 100%;
-    height: auto;
-}
-
-.footer {
-    display: flex;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, .3);
-    padding: 10px;
-}
-
-button {
-    text-align: center;
-    background-color: #666;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 40px;
+    height: 200px; /* Adjust height as needed */
     border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    backface-visibility: hidden; /* Hide backface when flipping */
+    transition: transform 0.5s; /* Smooth transition for flipping */
+  }
+  
+  .card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-front h2 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 0;
+    font-size: 1.2em;
     color: white;
-    font-size: 22px;
-    cursor: pointer;
-    margin: 5px;
-}
+  }
+  
+  .card-back {
+    transform: rotateY(180deg); /* Initially hidden by rotating 180 degrees */
+    background-color: #333; /* Change background color for the back side */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  /* Add hover effect to flip the card */
+  .crypto-card.flip .card-front {
+    transform: rotateY(180deg);
+  }
+  
+  .crypto-card.flip .card-back {
+    transform: rotateY(0deg);
+  }
+  
