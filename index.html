@@ -1,23 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Narek's Cryptos</title>
-    <meta name="description" content="A curated list of interesting cryptocurrencies">
-    <link rel="stylesheet" href="style.css" />
-    <script src="scripts.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Your Project Title</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
-
 <body>
     <header class="main-header">
-        <h1 class="title">Narek's Cryptos</h1>
+        <div class="welcome-message">
+            <br>
+            <br>
+            <br>
+            <h2>Welcome to THE <span style="color: #ffff00;">NARRATIVE NEXus</span></h2>            
+            <p>This project is aimed at showcasing the various narratives that exist in the blockchain.</p>
+            <p>Explore how different tokens represent diverse narratives within the decentralized world.</p>
+            <p>From Ethereum's smart contract capabilities to Solana's high-performance blockchain, discover the potential of each narrative.</p>
+            <p>Join me as this catalog delves into narratives such as Artificial Intelligence with tokens like Fetch.AI, or Decentralized Finance with Uniswap and AAVE.</p>
+            <p>Discover how blockchain technology is transforming industries and revolutionizing our future.</p>
+            <br>
+            <br>
+            <br>
+            <p><span style="color: lightblue;">Choose a narrative to start learning more about it.</span></p>
+        </div>
     </header>
     <main>
-        <section id="card-container">
-        </section>
+        <form id="selectForm">
+            <select id="narratives" name="narrative">
+                <option value="" selected disabled>Select a narrative...</option>
+                <option value="artificial-intelligence">Artificial Intelligence</option>
+                <option value="decentralized-computing">Decentralized Computing</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit" class="explore-button">EXPLORE</button> <!-- Changed text to all caps -->
+        </form>
     </main>
-    <footer class="footer">
-        </footer>
-</body>
+    <footer>
+        <div class="welcome-message">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>Designed & Created by Narek Maghroochian</p>
+        </div>
+    </footer>
 
+    <script>
+        document.getElementById("selectForm").addEventListener("submit", function(event) 
+        {
+            event.preventDefault();
+            const selectedNarrative = document.getElementById("narratives").value;
+    
+            // Add animations here based on the selected narrative
+            const cards = document.querySelectorAll(".crypto-card");
+            cards.forEach(card => {
+                card.classList.add("animate"); // Add animate class to trigger animation
+            });
+    
+            // Redirect the user based on the selected narrative
+            if (selectedNarrative === "artificial-intelligence") {
+                // Redirect the user to the crypto cards page
+                window.location.href = "crypto_cards.html";
+            } else if (selectedNarrative === "decentralized-computing") {
+                // Redirect the user to the crypto cards page
+                window.location.href = "crypto_cards.html";
+            }
+        });
+    </script>
+    
+</body>
 </html>
